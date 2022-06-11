@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/autores': (context) => AutoresScreen(),
-        '/fotografias': (context) => GaleriaScreen(),
+        '/galeria': (context) => GaleriaScreen(),
         '/lenguamaterna': (context) => LmaternaScreen(),
-        '/fotografias': (context) => InformacionScreen(),
+        '/informacion': (context) => InformacionScreen(),
       },
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -82,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
               ),
               RaisedButton(
-                child: Text('Autores'),
+                child: Text('Autor'),
                 onPressed: () {
                   Navigator.pushNamed(context, '/autores');
                 },
@@ -112,6 +112,9 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text('Memoria Colectiva'),
             ),
             ListTile(
+              leading: Image.asset(
+                'images/inicio.png',
+              ),
               title: const Text('Inicio'),
               onTap: () {
                 // Update the state of the app.
@@ -121,29 +124,26 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               title: const Text('Autores'),
               onTap: () {
-                // Update the state of the app.
-                // ...
+                  Navigator.pushNamed(context, '/autores');
               },
             ),
             ListTile(
+              leading: Icon(Icons.image),
               title: const Text('Fotografías'),
               onTap: () {
-                // Update the state of the app.
-                // ...
+                Navigator.pushNamed(context, '/galeria');
               },
             ),
             ListTile(
               title: const Text('Lengua Materna'),
               onTap: () {
-                // Update the state of the app.
-                // ...
+                Navigator.pushNamed(context, '/lenguamaterna');
               },
             ),
             ListTile(
               title: const Text('Información'),
               onTap: () {
-                // Update the state of the app.
-                // ...
+                Navigator.pushNamed(context, '/informacion');
               },
             ),
           ],
@@ -167,7 +167,7 @@ class AutoresScreen extends StatelessWidget {
         child: RaisedButton(
           child: Text('Autores'),
           onPressed: () {
-            Navigator.pushNamed(context, '/fotografias');
+            Navigator.pushNamed(context, '/autores');
           },
         ),
       ),
