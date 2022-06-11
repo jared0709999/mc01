@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               TextButton(
-                child: const Text('BUY TICKETS'),
+                child: const Text('BUY'),
                 onPressed: () {/* ... */},
               ),
               const SizedBox(width: 8),
