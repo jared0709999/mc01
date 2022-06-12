@@ -51,44 +51,52 @@ class _MyHomePageState extends State<MyHomePage> {
             title: Text(widget.title),
           ),
           body: Center(
+
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Card(
-                  child: Padding(
-                    padding: EdgeInsets.all(20),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        const ListTile(
-                          leading: Icon(Icons.album),
-                          title: Text('The Enchanted Nightingale'),
-                          subtitle: Text(
-                              'Music by Julie Gable. Lyrics by Sidney Stein.'),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: <Widget>[
-                            TextButton(
-                              child: const Text('BUY'),
-                              onPressed: () {
-                                /* ... */
-                              },
-                            ),
-                            const SizedBox(width: 8),
-                            TextButton(
-                              child: const Text('LISTEN'),
-                              onPressed: () {
-                                /* ... */
-                              },
-                            ),
-                            const SizedBox(width: 8),
-                          ],
-                        ),
-                      ],
+                Container(
+
+                  child: Padding(padding: EdgeInsets.all(20.0),
+
+                    child: Card(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          const ListTile(
+                            leading: Icon(Icons.album),
+                            title: Text('The Enchanted Nightingale'),
+                            subtitle: Text(
+                                'Music by Julie Gable. Lyrics by Sidney Stein.'),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: <Widget>[
+                              TextButton(
+                                child: const Text('BUY'),
+                                onPressed: () {
+                                  /* ... */
+                                },
+                              ),
+                              const SizedBox(width: 8),
+                              TextButton(
+                                child: const Text('LISTEN'),
+                                onPressed: () {
+                                  /* ... */
+                                },
+                              ),
+                              const SizedBox(width: 8),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
+
+
+
                   ),
                 ),
+
                 RaisedButton(
                   child: Text('Autor'),
                   onPressed: () {
@@ -98,10 +106,10 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
-          floatingActionButton: FloatingActionButton(
+          floatingActionButton: const FloatingActionButton(
             onPressed: null,
             tooltip: 'Increment',
-            child: const Icon(Icons.add),
+            child: Icon(Icons.add),
           ),
           drawer: Drawer(
             // Add a ListView to the drawer. This ensures the user can scroll
@@ -115,9 +123,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   decoration: const BoxDecoration(
                     color: Colors.lightBlue,
                     image: DecorationImage(
-                      image: AssetImage('images/tec.png'),
-                      fit: BoxFit.fill,
-                    ),
+                        image: AssetImage('images/logomc.png'),
+                        fit: BoxFit.fitHeight,
+                        scale: 0.1),
                   ),
                   child: Stack(
                     children: const [
@@ -126,15 +134,15 @@ class _MyHomePageState extends State<MyHomePage> {
                         left: 4.0,
                         child: Text(
                           "Memoria Colectiva",
-                          style: TextStyle(color: Colors.white, fontSize: 20),
+                          style: TextStyle(color: Colors.white, fontSize: 30),
                         ),
                       )
                     ],
                   ),
                 ),
+
                 ListTile(
-                  leading: Image.asset(
-                    'images/inicio.png',
+                  leading: const Icon(Icons.home_filled, color: Colors.lightBlue
                   ),
                   title: const Text('Inicio'),
                   onTap: () {
@@ -143,25 +151,32 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                 ),
                 ListTile(
+                  leading: const Icon(Icons.people, color: Colors.lightBlue,),
                   title: const Text('Autores'),
                   onTap: () {
                     Navigator.pushNamed(context, '/autores');
                   },
                 ),
                 ListTile(
-                  leading: Icon(Icons.image),
+                  leading: const Icon(Icons.image, color: Colors.lightBlue,),
                   title: const Text('Fotografías'),
                   onTap: () {
                     Navigator.pushNamed(context, '/galeria');
                   },
                 ),
                 ListTile(
+                  leading: const Icon(Icons.pages, color: Colors.lightBlue,),
                   title: const Text('Lengua Materna'),
                   onTap: () {
                     Navigator.pushNamed(context, '/lenguamaterna');
                   },
                 ),
+
+                Divider(),
+
                 ListTile(
+                  visualDensity: VisualDensity.adaptivePlatformDensity,
+                  leading: const Icon(Icons.info, color: Colors.lightBlue,),
                   title: const Text('Información'),
                   onTap: () {
                     Navigator.pushNamed(context, '/informacion');
@@ -236,7 +251,8 @@ class InformacionScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Información"),
+        leading: const Icon(Icons.info),
+        title: const Text("Información"),
       ),
       body: Center(
         child: RaisedButton(
