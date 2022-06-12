@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       },
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.lightBlue,
+        primarySwatch: Colors.indigo,
       ),
       home: const MyHomePage(title: 'Memoria colectiva'),
     );
@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Container(
         decoration: const BoxDecoration(
             gradient: LinearGradient(
-                colors: [Colors.lightBlue, Colors.indigo],
+                colors: [Colors.lightBlue, Colors.blue, Colors.blueAccent, Colors.indigoAccent, Colors.indigo],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter)),
         child: Scaffold(
@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: <Widget>[
                 Container(
 
-                  child: Padding(padding: EdgeInsets.all(20.0),
+                  child: Padding(padding: const EdgeInsets.all(20.0),
 
                     child: Card(
                       child: Column(
@@ -121,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 DrawerHeader(
                   decoration: const BoxDecoration(
-                    color: Colors.lightBlue,
+                    color: Colors.indigo,
                     image: DecorationImage(
                         image: AssetImage('images/logomc.png'),
                         fit: BoxFit.fitHeight,
