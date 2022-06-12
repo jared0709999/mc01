@@ -42,13 +42,13 @@ class _MyHomePageState extends State<MyHomePage> {
     return Container(
         decoration: const BoxDecoration(
             gradient: LinearGradient(
-                colors: [Colors.lightBlue, Color.fromRGBO(0, 0, 255, 0.7)],
+                colors: [Colors.lightBlue, Colors.indigo],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter)),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
-            title: Text(widget.title),
+            title: Text(widget.title, style: const TextStyle(color: Colors.white)),
           ),
           body: Center(
 
@@ -194,11 +194,11 @@ class AutoresScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Autores'),
+        title: const Text('Autores', style: TextStyle(color: Colors.white)),
       ),
       body: Center(
         child: RaisedButton(
-          child: Text('Autores'),
+          child: const Text('Autores'),
           onPressed: () {
             Navigator.pushNamed(context, '/autores');
           },
@@ -213,14 +213,14 @@ class GaleriaScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Galería"),
+        title: const Text("Galería", style: TextStyle(color: Colors.white)),
       ),
       body: Center(
         child: RaisedButton(
           onPressed: () {
             // ¡Regrese a la primera pantalla cuando la pulsen!
           },
-          child: Text('Go back!'),
+          child: const Text('Go back!'),
         ),
       ),
     );
@@ -232,7 +232,7 @@ class LmaternaScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Lengua Materna"),
+        title: const Text("Lengua Materna", style: TextStyle(color: Colors.white),)
       ),
       body: Center(
         child: RaisedButton(
@@ -252,7 +252,7 @@ class InformacionScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: const Icon(Icons.info),
-        title: const Text("Información"),
+        title: const Text("Información", style: TextStyle(color: Colors.white),)
       ),
       body: Center(
         child: RaisedButton(
