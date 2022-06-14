@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mc01/pages/InformacionScreen.dart';
+import 'package:mc01/pages/AutoresScreen.dart';
+import 'package:mc01/pages/GaleriaScreen.dart';
+import 'package:mc01/pages/LmaternaScreen.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -41,24 +46,26 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Container(
         decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                colors: [Colors.lightBlue, Colors.blue, Colors.blueAccent, Colors.indigoAccent, Colors.indigo],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter)),
+            gradient: LinearGradient(colors: [
+          Colors.lightBlue,
+          Colors.blue,
+          Colors.blueAccent,
+          Colors.indigoAccent,
+          Colors.indigo
+        ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
-            title: Text(widget.title, style: const TextStyle(color: Colors.white)),
+            title:
+                Text(widget.title, style: const TextStyle(color: Colors.white)),
           ),
           body: Center(
-
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
-
-                  child: Padding(padding: const EdgeInsets.all(20.0),
-
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
                     child: Card(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
@@ -91,12 +98,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         ],
                       ),
                     ),
-
-
-
                   ),
                 ),
-
                 RaisedButton(
                   child: Text('Autor'),
                   onPressed: () {
@@ -110,6 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: null,
             tooltip: 'Increment',
             child: Icon(Icons.add),
+            backgroundColor: Colors.lightBlue,
           ),
           drawer: Drawer(
             // Add a ListView to the drawer. This ensures the user can scroll
@@ -140,10 +144,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                 ),
-
                 ListTile(
-                  leading: const Icon(Icons.home_filled, color: Colors.lightBlue
-                  ),
+                  leading:
+                      const Icon(Icons.home_filled, color: Colors.lightBlue),
                   title: const Text('Inicio'),
                   onTap: () {
                     // Update the state of the app.
@@ -151,32 +154,42 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                 ),
                 ListTile(
-                  leading: const Icon(Icons.people, color: Colors.lightBlue,),
+                  leading: const Icon(
+                    Icons.people,
+                    color: Colors.lightBlue,
+                  ),
                   title: const Text('Autores'),
                   onTap: () {
                     Navigator.pushNamed(context, '/autores');
                   },
                 ),
                 ListTile(
-                  leading: const Icon(Icons.image, color: Colors.lightBlue,),
+                  leading: const Icon(
+                    Icons.image,
+                    color: Colors.lightBlue,
+                  ),
                   title: const Text('Fotografías'),
                   onTap: () {
                     Navigator.pushNamed(context, '/galeria');
                   },
                 ),
                 ListTile(
-                  leading: const Icon(Icons.pages, color: Colors.lightBlue,),
+                  leading: const Icon(
+                    Icons.pages,
+                    color: Colors.lightBlue,
+                  ),
                   title: const Text('Lengua Materna'),
                   onTap: () {
                     Navigator.pushNamed(context, '/lenguamaterna');
                   },
                 ),
-
                 Divider(),
-
                 ListTile(
                   visualDensity: VisualDensity.adaptivePlatformDensity,
-                  leading: const Icon(Icons.info, color: Colors.lightBlue,),
+                  leading: const Icon(
+                    Icons.info,
+                    color: Colors.lightBlue,
+                  ),
                   title: const Text('Información'),
                   onTap: () {
                     Navigator.pushNamed(context, '/informacion');
@@ -189,79 +202,10 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class AutoresScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Autores', style: TextStyle(color: Colors.white)),
-      ),
-      body: Center(
-        child: RaisedButton(
-          child: const Text('Autores'),
-          onPressed: () {
-            Navigator.pushNamed(context, '/autores');
-          },
-        ),
-      ),
-    );
-  }
-}
 
-class GaleriaScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Galería", style: TextStyle(color: Colors.white)),
-      ),
-      body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            // ¡Regrese a la primera pantalla cuando la pulsen!
-          },
-          child: const Text('Go back!'),
-        ),
-      ),
-    );
-  }
-}
 
-class LmaternaScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Lengua Materna", style: TextStyle(color: Colors.white),)
-      ),
-      body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            // ¡Regrese a la primera pantalla cuando la pulsen!
-          },
-          child: Text('Go back!'),
-        ),
-      ),
-    );
-  }
-}
 
-class InformacionScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: const Icon(Icons.info),
-        title: const Text("Información", style: TextStyle(color: Colors.white),)
-      ),
-      body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            // ¡Regrese a la primera pantalla cuando la pulsen!
-          },
-          child: Text('Go back!'),
-        ),
-      ),
-    );
-  }
-}
+
+
+
+
