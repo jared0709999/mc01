@@ -3,6 +3,7 @@ import 'package:mc01/pages/InformacionScreen.dart';
 import 'package:mc01/pages/AutoresScreen.dart';
 import 'package:mc01/pages/GaleriaScreen.dart';
 import 'package:mc01/pages/LmaternaScreen.dart';
+import 'package:mc01/pages/NuevosScreen.dart';
 
 
 void main() {
@@ -12,9 +13,11 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: {
@@ -22,10 +25,11 @@ class MyApp extends StatelessWidget {
         '/galeria': (context) => GaleriaScreen(),
         '/lenguamaterna': (context) => LmaternaScreen(),
         '/informacion': (context) => InformacionScreen(),
-      },
+        '/nuevo': (context) => NuevosScreen(),
+        },
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
+        primarySwatch: Colors.cyan,
       ),
       home: const MyHomePage(title: 'Memoria colectiva'),
     );
@@ -47,11 +51,10 @@ class _MyHomePageState extends State<MyHomePage> {
     return Container(
         decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
-          Colors.lightBlue,
-          Colors.blue,
-          Colors.blueAccent,
-          Colors.indigoAccent,
-          Colors.indigo
+          Colors.cyan,
+          Colors.lightBlueAccent,
+          Colors.greenAccent,
+
         ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
         child: Scaffold(
           backgroundColor: Colors.transparent,
@@ -110,11 +113,14 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           floatingActionButton: const FloatingActionButton(
-            onPressed: null,
+            onPressed: () {
+              Navigator.pushNamed(context, '/nuevo');
+        },
             tooltip: 'Increment',
             child: Icon(Icons.add),
-            backgroundColor: Colors.lightBlue,
+            backgroundColor: Colors.cyan,
           ),
+
           drawer: Drawer(
             // Add a ListView to the drawer. This ensures the user can scroll
             // through the options in the drawer if there isn't enough vertical
@@ -125,9 +131,9 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 DrawerHeader(
                   decoration: const BoxDecoration(
-                    color: Colors.indigo,
+                    color: Colors.cyan,
                     image: DecorationImage(
-                        image: AssetImage('images/logomc.png'),
+                        image: AssetImage('images/mc.png'),
                         fit: BoxFit.fitHeight,
                         scale: 0.1),
                   ),
@@ -146,17 +152,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 ListTile(
                   leading:
-                      const Icon(Icons.home_filled, color: Colors.lightBlue),
+                      const Icon(Icons.home_filled, color: Colors.cyan),
                   title: const Text('Inicio'),
                   onTap: () {
-                    // Update the state of the app.
-                    // ...
+                    Navigator.pushNamed(context, '/login');
                   },
                 ),
                 ListTile(
                   leading: const Icon(
                     Icons.people,
-                    color: Colors.lightBlue,
+                    color: Colors.cyan,
                   ),
                   title: const Text('Autores'),
                   onTap: () {
@@ -166,7 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ListTile(
                   leading: const Icon(
                     Icons.image,
-                    color: Colors.lightBlue,
+                    color: Colors.cyan,
                   ),
                   title: const Text('Fotografías'),
                   onTap: () {
@@ -176,7 +181,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ListTile(
                   leading: const Icon(
                     Icons.pages,
-                    color: Colors.lightBlue,
+                    color: Colors.cyan,
                   ),
                   title: const Text('Lengua Materna'),
                   onTap: () {
@@ -188,7 +193,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   visualDensity: VisualDensity.adaptivePlatformDensity,
                   leading: const Icon(
                     Icons.info,
-                    color: Colors.lightBlue,
+                    color: Colors.cyan,
                   ),
                   title: const Text('Información'),
                   onTap: () {
