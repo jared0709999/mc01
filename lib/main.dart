@@ -103,8 +103,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                RaisedButton(
-                  child: Text('Autor'),
+                ElevatedButton(
+                  child: const Text('Autor'),
                   onPressed: () {
                     Navigator.pushNamed(context, '/autores');
                   },
