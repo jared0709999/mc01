@@ -3,6 +3,8 @@ import 'package:mc01/pages/InformacionScreen.dart';
 import 'package:mc01/pages/AutoresScreen.dart';
 import 'package:mc01/pages/GaleriaScreen.dart';
 import 'package:mc01/pages/LmaternaScreen.dart';
+import 'package:mc01/pages/NuevoScreen.dart';
+import 'package:mc01/pages/login_page.dart';
 
 
 void main() {
@@ -16,12 +18,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
+      initialRoute: '/LoginPage',
       routes: {
+        '/LoginPage': (context) => LoginPage(),
         '/autores': (context) => AutoresScreen(),
         '/galeria': (context) => GaleriaScreen(),
         '/lenguamaterna': (context) => LmaternaScreen(),
         '/informacion': (context) => InformacionScreen(),
+        '/nuevo': (context) => NuevoScreen(),
       },
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -110,7 +114,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           floatingActionButton: const FloatingActionButton(
-            onPressed: null,
+            onPressed: () {
+            Navigator.pushNamed(context, '/nuevo');
+            },
             tooltip: 'Increment',
             child: Icon(Icons.add),
             backgroundColor: Colors.lightBlue,

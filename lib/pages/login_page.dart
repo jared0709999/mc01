@@ -1,21 +1,33 @@
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  static String id= 'LoginScreen'
+class LoginPage extends StatefulWidget {
+  static String id= 'login_page';
+
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Autores', style: TextStyle(color: Colors.white)),
-      ),
-      body: Center(
-        child: RaisedButton(
-          child: const Text('Autores'),
-          onPressed: () {
-            Navigator.pushNamed(context, '/autores');
-          },
-        ),
-      ),
+  _LoginPageState createState() => _LoginPageState();
+  }
+
+  class _LoginPageState extends State <LoginPage> {
+  @override
+    Widget build(BuildContext contest) {
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: Column(
+            children: [
+              Image.asset('images/memorialogo.png',
+              height: 300.0,
+              ),
+           SizedBox(height: 15.0,),
+             _userTextField(),
+             SizedBox(height: 15,),
+             _passwordTextField(),
+
+            ],
+          ),
+
+        )
+      )
     );
   }
-}
+  }
