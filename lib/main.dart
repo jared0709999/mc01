@@ -114,9 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           floatingActionButton: const FloatingActionButton(
-            onPressed: () {
-            Navigator.pushNamed(context, '/nuevo');
-            },
+            onPressed: (null),
             tooltip: 'Increment',
             child: Icon(Icons.add),
             backgroundColor: Colors.lightBlue,
