@@ -1,4 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:http/http.dart'as http;
 import 'package:mc01/pages/InformacionScreen.dart';
 import 'package:mc01/pages/AutoresScreen.dart';
 import 'package:mc01/pages/GaleriaScreen.dart';
@@ -6,7 +10,18 @@ import 'package:mc01/pages/LmaternaScreen.dart';
 import 'package:mc01/pages/NuevoScreen.dart';
 import 'package:mc01/pages/login_page.dart';
 
+final dominiourl ="https://memoriacolectiva.mapaches.info/wp-json/wp/v2/post?_embed";
 
+Future<List> contenido() async{
+  final response =
+      await http.get(
+        dominiourl,
+        headers: {
+          'Accept': 'aplication/json'
+        });
+  var convertiarjson = jsonDecode(response.body);
+  return convertiarjson;
+}
 void main() {
   runApp(const MyApp());
 }
@@ -18,7 +33,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/LoginPage',
+      initialRoute: '',
       routes: {
         '/LoginPage': (context) => LoginPage(),
         '/autores': (context) => AutoresScreen(),
@@ -35,6 +50,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -67,43 +83,6 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Container(
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Card(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          const ListTile(
-                            leading: Icon(Icons.album),
-                            title: Text('The Enchanted Nightingale'),
-                            subtitle: Text(
-                                'Music by Julie Gable. Lyrics by Sidney Stein.'),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: <Widget>[
-                              TextButton(
-                                child: const Text('BUY'),
-                                onPressed: () {
-                                  /* ... */
-                                },
-                              ),
-                              const SizedBox(width: 8),
-                              TextButton(
-                                child: const Text('LISTEN'),
-                                onPressed: () {
-                                  /* ... */
-                                },
-                              ),
-                              const SizedBox(width: 8),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
                 ElevatedButton(
                   child: const Text('Autor'),
                   onPressed: () {
