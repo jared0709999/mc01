@@ -10,7 +10,7 @@ import 'package:mc01/pages/LmaternaScreen.dart';
 import 'package:mc01/pages/NuevoScreen.dart';
 import 'package:mc01/pages/login_page.dart';
 
-final dominiourl ="https://memoriacolectiva.mapaches.info/wp-json/wp/v2/post?_embed";
+String dominiourl ="https://memoriacolectiva.mapaches.info/wp-json/wp/v2/post?_embed".toString();
 
 Future<List> contenido() async{
   final response =
