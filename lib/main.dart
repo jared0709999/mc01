@@ -10,7 +10,10 @@ import 'package:mc01/pages/LmaternaScreen.dart';
 import 'package:mc01/pages/NuevoScreen.dart';
 import 'package:mc01/pages/login_page.dart';
 
-String dominiourl ="https://memoriacolectiva.mapaches.info/wp-json/wp/v2/post?_embed".toString();
+// String dominiourl ="https://memoriacolectiva.mapaches.info/wp-json/wp/v2/post?_embed".toString();
+
+// Conversión de URL convencional a nuevo formato Uri
+Uri dominiourl = Uri.parse("https://memoriacolectiva.mapaches.info/wp-json/wp/v2/post?_embed");
 
 Future<List> contenido() async{
   final response =
