@@ -1,8 +1,9 @@
 import 'dart:convert';
-
+import 'apis/wordpress.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart'as http;
+import 'package:mc01/apis/wordpress.dart';
 import 'package:mc01/pages/InformacionScreen.dart';
 import 'package:mc01/pages/AutoresScreen.dart';
 import 'package:mc01/pages/GaleriaScreen.dart';
@@ -10,21 +11,7 @@ import 'package:mc01/pages/LmaternaScreen.dart';
 import 'package:mc01/pages/NuevoScreen.dart';
 import 'package:mc01/pages/login_page.dart';
 
-// String dominiourl ="https://memoriacolectiva.mapaches.info/wp-json/wp/v2/post?_embed".toString();
 
-// Conversión de URL convencional a nuevo formato Uri
-Uri dominiourl = Uri.parse("https://memoriacolectiva.mapaches.info/wp-json/wp/v2/post?_embed");
-
-Future<List> contenido() async{
-  final response =
-      await http.get(
-        dominiourl,
-        headers: {
-          'Accept': 'aplication/json'
-        });
-  var convertiarjson = jsonDecode(response.body);
-  return convertiarjson;
-}
 void main() {
   runApp(const MyApp());
 }
@@ -45,7 +32,7 @@ class MyApp extends StatelessWidget {
         '/informacion': (context) => InformacionScreen(),
         '/nuevo': (context) => NuevoScreen(),
       },
-      title: 'Flutter Demo',
+      title: 'Memoria Colectiva',
       theme: ThemeData(
         primarySwatch: Colors.indigo,
       ),
@@ -76,25 +63,34 @@ class _MyHomePageState extends State<MyHomePage> {
           Colors.indigoAccent,
           Colors.indigo
         ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+
         child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
             title:
                 Text(widget.title, style: const TextStyle(color: Colors.white)),
           ),
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                ElevatedButton(
-                  child: const Text('Autor'),
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/autores');
-                  },
-                ),
-              ],
-            ),
+          body: FutureBuilder(
+            future:contenido(),
+            builder: (BuildContext context, AsyncSnapshot snapshot){
+              if (snapshot.hasData) {
+                var post = snapshot.data;
+                return ListView.builder(
+                    itemCount: post.lenght,
+                    itemBuilder:(context, index){
+                      Map post = snapshot.data[index];
+                      return Text(post['title']['rendered']);
+                    }
+                );
+
+              } else {
+                return Center (child: CircularProgressIndicator(),);
+
+              }
+            },
           ),
+
+
           floatingActionButton: const FloatingActionButton(
             onPressed: (null),
             tooltip: 'Increment',
